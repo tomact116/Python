@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from sportsmen.views import index
+from sportsmen.views import index, sports
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sportsmen/', index),
+    path('sports/', sports)
 ]
