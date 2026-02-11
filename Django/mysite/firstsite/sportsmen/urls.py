@@ -7,7 +7,7 @@ from sportsmen.views import index, sports
 
 urlpatterns = [
     path('', index),          # 对应 /sportsmen/
-    #path('sports/<int:sp_id>/', sports)   # 对应 /sportsmen/sports/
+    path('sports/<int:sp_id>/', sports)
     #path('sports/', sports)   # 对应 /sportsmen/sports/
-    re_path(r'^sports/(?P<year>[0-9]{4})/$', sports),
+    #re_path(r'^sports/(?P<year>[0-9]{4})/$', sports),
 ]
