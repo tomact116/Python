@@ -33,6 +33,6 @@ urlpatterns = [
     #path('sports/', sports)  #当用户访问 http://127.0.0.1:8000/sports/ 时，调用 sports 视图函数
     #这个路由已经移到 sportsmen/urls.py 中：path('sports/', views.sports)
 
-    path('sportsmen/', include('sportsmen.urls')),  # 这里使用了 include 包含应用的urls
+    path('', include('sportsmen.urls')),  # 这里使用了 include 包含应用的urls
     #http://127.0.0.1:8000/sportsmen/sports/
 ]
