@@ -19,6 +19,7 @@ from django.urls import path, include
 #from sportsmen.views import index, sports   #从 sportsmen 应用的 views.py 文件中导入 index 和 sports 这两个视图函数
 #因为我们现在使用 include('sportsmen.urls')，URL 路由的责任已经转移给 sportsmen/urls.py
 #sportsmen/urls.py 会自己导入需要的视图函数
+from sportsmen.views import pageNotFound
 
 #修改主 urls.py 使用 include
 
@@ -36,3 +37,6 @@ urlpatterns = [
     path('', include('sportsmen.urls')),  # 这里使用了 include 包含应用的urls
     #http://127.0.0.1:8000/sportsmen/sports/
 ]
+
+# 设置 404
+handler404 = pageNotFound
