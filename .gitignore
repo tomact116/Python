@@ -1,0 +1,4 @@
+# 排除特定文件夹
+__pycache__/
+db.sqlite3
+*.log

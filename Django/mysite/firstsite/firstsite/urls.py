@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings                 # 导入 settings
+from django.conf.urls.static import static      # 导入 static
 #from sportsmen.views import index, sports   #从 sportsmen 应用的 views.py 文件中导入 index 和 sports 这两个视图函数
 #因为我们现在使用 include('sportsmen.urls')，URL 路由的责任已经转移给 sportsmen/urls.py
 #sportsmen/urls.py 会自己导入需要的视图函数
@@ -40,3 +42,6 @@ urlpatterns = [
 
 # 设置 404
 handler404 = pageNotFound
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
