@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import Http404
 from django.shortcuts import redirect
 from django.http import HttpResponsePermanentRedirect
+from .models import *
 
 # Create your views here.
 from django.http import HttpResponse
@@ -14,7 +15,9 @@ def index(request):
     #return render(request, template_name: '?')
     #return render(request, template_name='sportsmen/index.html')
     #return render(request, template_name='sportsmen/index.html', context={'title':'Main page'})
-    return render(request, template_name='sportsmen/index.html', context={'menu': menu, 'title': 'Main page'})
+    #return render(request, template_name='sportsmen/index.html', context={'menu': menu, 'title': 'Main page'})
+    posts = Sportsman.objects.all()
+    return render(request, 'sportsmen/index.html', {'posts': posts, 'menu': menu, 'title': 'Main page'})
 
 def about(request):
     #return render(request, template_name='sportsmen/about.html')
