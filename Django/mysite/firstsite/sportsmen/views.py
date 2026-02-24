@@ -7,8 +7,19 @@ from django.http import HttpResponsePermanentRedirect
 # Create your views here.
 from django.http import HttpResponse
 
+menu = ['About', 'Add article', 'Contacts', 'Sign in']
+
 def index(request):
-    return HttpResponse("Welcome to the sportsmen website!")
+    #return HttpResponse("Welcome to the sportsmen website!")
+    #return render(request, template_name: '?')
+    #return render(request, template_name='sportsmen/index.html')
+    #return render(request, template_name='sportsmen/index.html', context={'title':'Main page'})
+    return render(request, template_name='sportsmen/index.html', context={'menu': menu, 'title': 'Main page'})
+
+def about(request):
+    #return render(request, template_name='sportsmen/about.html')
+    #return render(request, template_name='sportsmen/about.html', context={'title':'About'})
+    return render(request, template_name='sportsmen/about.html', context={'menu': menu, 'title': 'About page'})
 
 def sports(request, sp_id):
     if(request.GET):
