@@ -9,7 +9,7 @@ urlpatterns = [
     #path('', index),          # 对应 /sportsmen/
     path('', index, name='home'), 
     path('sports/<int:sp_id>/', sports),
-    #path('sports/', sports)   # 对应 /sportsmen/sports/
-    #re_path(r'^sports/(?P<year>[0-9]{4})/$', sports),
+    path('sports/', sports),   # 对应 /sportsmen/sports/
+    re_path(r'^sports/(?P<year>[0-9]{4})/$', sports),
     path('about/', about, name='about')
 ]

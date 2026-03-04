@@ -117,7 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_DIRS = []
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  #Django 上传文件时应存放的路径
 MEDIA_URL = '/media/'   #用于访问 MEDIA_ROOT 路径的 URL
