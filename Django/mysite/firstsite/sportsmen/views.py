@@ -1,14 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #from django.http import HttpResponse, HttpResponseNotFound
-from django.http import Http404
-from django.shortcuts import redirect
-from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponse, HttpResponsePermanentRedirect, Http404
 from .models import *
 from django.urls import reverse
 #from .models import Sportsman, Sports
 
 # Create your views here.
-from django.http import HttpResponse
 
 #menu = ['About', 'Add article', 'Contacts', 'Sign in']
 
