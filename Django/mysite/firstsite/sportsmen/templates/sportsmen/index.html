@@ -9,6 +9,9 @@
             <p class="first">Sport category: {{ p.sport }}</p>
             <p class="last">Date: {{ p.time_update|date:"d-m-Y H:i:s" }}</p>
         </div>
+        {% if p.photo %}
+        <p><img class="img-article-left thumb" src="{{ p.photo.url }}"></p>
+        {% endif %}
         {% autoescape off %}
         <h2>{{ p.title }}</h2>
         <p>{{ p.content|linebreaks|truncatewords:20 }}</p>
