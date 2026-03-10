@@ -40,12 +40,9 @@ urlpatterns = [
     path('', include('sportsmen.urls')),  # 这里使用了 include 包含应用的urls
     #http://127.0.0.1:8000/sportsmen/sports/
 
-    path('post/<int:post_id>', show_post, name='post'),
-
     path('contact/', contact, name='contact'),
     path('login/', login, name='login'),
     path('addarticle/', addarticle, name='add_article'),
-    path('sport/<int:sport_id>/', show_sport, name='sport'),
 ]
 
 # 设置 404

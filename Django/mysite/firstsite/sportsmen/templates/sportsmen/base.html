@@ -1,4 +1,5 @@
 {% load static %}
+{% load sportsmen_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +44,10 @@
                                 <li><a href="{% url 'home' %}">All sports</a></li>
                             {% endif %}
 
+                            {% show_sports sort='name' sport_selected=sport_selected %}
+
+                            {% comment %}
+                            {% getsports as sports %}
                             {% for s in sports %}
                                 {% if s.pk == sport_selected %}
                                     <li class="selected">{{ s.name }}</li>
@@ -50,6 +55,7 @@
                                     <li><a href="{{ s.get_absolute_url }}">{{ s.name }}</a></li>
                                 {% endif %}
                             {% endfor %}
+                            {% endcomment %}
                         </ul>
                     </td>
                     <!-- end Sidebar -->
