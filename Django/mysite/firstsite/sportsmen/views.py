@@ -75,17 +75,8 @@ def addarticle(request):
     if request.method == 'POST':
         form = AddArticleForm(request.POST)
         if form.is_valid():
-            try:
-                Sportsman.objects.create(
-                    title=form.cleaned_data['title'],
-                    slug=form.cleaned_data['slug'],
-                    content=form.cleaned_data['content'],
-                    is_published=form.cleaned_data['is_published'],
-                    sport=form.cleaned_data['sport']
-                )
-                return redirect('home')
-            except Exception as e:
-                form.add_error(None, str(e))
+            form.save()
+            return redirect('home')
     else:
         form = AddArticleForm()
     return render(request, 'sportsmen/addarticle.html', {
