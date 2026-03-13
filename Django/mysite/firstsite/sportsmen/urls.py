@@ -7,6 +7,8 @@ from sportsmen import views
 #直接把所有应用的URL都放在主 urls.py 中不是好方法。我们应该为每个应用创建自己的 urls.py
 
 urlpatterns = [
+    path('addarticle/', views.addarticle, name='add_article'),
+    
     #path('', index),          # 对应 /sportsmen/
     path('post/<slug:post_slug>/', views.show_post, name='post'),
     path('sport/<slug:sport_slug>/', views.show_sport, name='sport'),

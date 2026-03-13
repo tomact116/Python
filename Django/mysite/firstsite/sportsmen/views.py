@@ -5,6 +5,7 @@ from .models import *
 from django.urls import reverse
 #from .models import Sportsman, Sports
 from django.shortcuts import get_object_or_404
+from .forms import AddArticleForm
 
 # Create your views here.
 
@@ -71,7 +72,27 @@ def contact(request):
     return HttpResponse("Contacts")
 
 def addarticle(request):
-    return HttpResponse("Add article")
+    if request.method == 'POST':
+        form = AddArticleForm(request.POST)
+        if form.is_valid():
+            try:
+                Sportsman.objects.create(
+                    title=form.cleaned_data['title'],
+                    slug=form.cleaned_data['slug'],
+                    content=form.cleaned_data['content'],
+                    is_published=form.cleaned_data['is_published'],
+                    sport=form.cleaned_data['sport']
+                )
+                return redirect('home')
+            except Exception as e:
+                form.add_error(None, str(e))
+    else:
+        form = AddArticleForm()
+    return render(request, 'sportsmen/addarticle.html', {
+        'menu': menu,
+        'title': 'Add article',
+        'form': form
+    })
 
 def login(request):
     return HttpResponse("Log in")
